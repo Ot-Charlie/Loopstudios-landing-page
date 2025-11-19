@@ -65,6 +65,9 @@ body.no-scroll {
     border: none;
    
 }
+header a{
+    text-transform: uppercase;
+}
 a{
     text-decoration: none;
     color: hsl(0, 0%, 100%);
@@ -128,6 +131,13 @@ margin-top: 100px;
      position: relative;
     z-index: 2;
 }
+.creations-grid img:hover{
+    opacity: 0.4;
+    transition: all 0.3s ease-in-out;
+}
+.creations-grid > div:hover h3{
+    color: hsl(0, 0%, 0%);
+}
 h3{
     position: absolute;
     bottom:18px;
@@ -143,8 +153,7 @@ font-size: 1.3rem;
     /* targets the 4th h3*/
     max-width: 80px;
 }
-.see-all{
-    /* display: block; */
+.see-all-two{
     margin: 20px auto;
     padding: 10px 30px;
     border: 2px solid hsl(0, 0%, 0%);
@@ -155,6 +164,15 @@ font-size: 1.3rem;
     text-align: center;
     width: 160px;
     cursor: pointer;
+}
+.see-all-one{
+    display: none;
+}
+.see-all-one:hover,
+.see-all-two:hover{
+    background-color: hsl(0, 0%, 0%);
+    color: hsl(0, 0%, 100%);
+    transition: all 0.3s ease-in-out;
 }
 footer{
     background-color: hsl(0, 0%, 0%);
@@ -213,9 +231,207 @@ h3 {
   font-size: 2rem;
   max-width: 170px;
 } 
-.see-all{
+.see-all-two{
    
     font-size: 1rem;
     width: 200px;
 }
 }
+@media(min-width: 1024px){
+    header{
+    display: flex;
+    
+justify-content: space-around;
+
+align-items:center;
+padding-top: 20px;
+}
+.header-content-wrapper {
+    all: unset;  /* Reset previous styles */
+}
+.logo{
+    height: 30px;
+
+}
+#menu-icon{
+    display: none;
+}
+.nav-menu {
+    position: static;
+    transform: translateX(0);
+    background-color:transparent;
+    flex-direction: row;
+height: auto;
+    padding: 0;
+}
+header a{
+    font-size: 1.5rem; 
+    text-transform:capitalize;
+    position: relative; 
+  display: inline-block; /* because it's an inline element */
+  padding-bottom: 5px;
+}
+header a:after {
+  content: '';
+  position: absolute; /* Positions it relative to the header a */
+  width: 30px;
+  height: 2px; 
+  background-color: hsl(0, 0%, 100%); 
+  bottom: 0; /* Align it to the bottom edge of the link */
+  left: 50%; /* Center start point */
+  transform: translateX(-50%); /* Center the dash itself */
+  opacity: 0;  /* Initial state: Make it invisible */
+  transition: opacity 0.3s ease; /* For a smooth fade-in */
+}
+
+header a:hover:after {
+  opacity: 1; /* Makes the dash appear */
+}
+h1{
+    font-size: 3rem;
+    font-weight: 300;
+      width: 500px;
+    margin-left: 160px;
+}
+.interactive-container{
+    display: flex;
+    position: relative;
+}
+.vr-logo img{
+    width: 600px;
+    height: auto;
+    margin-left: 160px;
+}
+   .interactive-text {
+        width: 620px;
+        background-color: hsl(0, 0%, 100%);
+        position: absolute;
+        right: 10px;
+        bottom: 0;
+    }
+    .interactive-container h2 {
+        max-width: 500px;
+        font-size: 3rem;
+    }
+        .interactive-container p {
+        font-size: 1.2rem;
+       width: 100%;
+       max-width: 560px;
+        }
+    .creations-header{
+      margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 80px;
+    }
+    .see-all-one{
+        display: block;
+          margin: 20px auto;
+    padding: 10px 30px;
+    border: 2px solid hsl(0, 0%, 0%);
+    color: hsl(0, 0%, 0%);
+    font-family: 'Alata', sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-align: center;
+    width: 160px;
+    cursor: pointer;
+    }
+    .creations-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 0; /* to align the gaps*/
+    width: 77%;
+    margin: auto;
+    cursor: pointer;
+}
+
+    h3 {
+        bottom: 25px;
+        left: 30px;
+        font-size: 1.8rem;
+        max-width: 170px;
+    }
+    .see-all-two{
+        display: none;
+    }
+footer{
+margin-top: 100px;
+padding-bottom: 40px;
+flex-direction: row;
+justify-content: space-around;
+align-items:center;
+}
+
+.footer-nav { 
+    flex-direction: row;
+}
+.footer-nav a, .social-icons a{
+ position: relative;
+ padding-bottom: 5px;
+}
+.footer-nav a:after {
+  content: '';
+  position: absolute; /* Positions it relative to the footer-nav a */
+  width: 30px;
+  height: 2px; 
+  background-color: hsl(0, 0%, 100%); 
+  bottom: 0; /* Align it to the bottom edge of the link */
+  left: 50%; /* Center start point */
+  transform: translateX(-50%); /* Center the dash itself */
+  opacity: 0;  /* Initial state: Make it invisible */
+  transition: opacity 0.3s ease; /* For a smooth fade-in */
+}
+.social-icons a:after {
+  content: '';
+  position: absolute; /* Positions it relative to the social-icon a */
+  width: 15px;
+  height: 2px; 
+  background-color: hsl(0, 0%, 100%); 
+  bottom: -5px; /* Align it to the bottom edge of the img */
+  left: 50%; /* Center start point */
+  transform: translateX(-50%); /* Center the dash itself */
+  opacity: 0;  /* Initial state: Make it invisible */
+  transition: opacity 0.3s ease; /* For a smooth fade-in */
+}
+.footer-nav a:hover:after, .social-icons a:hover:after {
+  opacity: 1; /* Makes the dash appear */
+}
+}
+/* @media(min-width: 1440px){
+h1{
+    width: 500px;
+    margin-left: 200px;
+}
+    .vr-logo img {
+        width: 700px;
+        height: auto;
+        margin-left: 90px;
+    }
+    .interactive-container{
+        margin: 0 50px;
+    }
+        .interactive-text {
+        width: 680px;
+        background-color: hsl(0, 0%, 100%);
+        position: absolute;
+        right: 10px;
+        bottom: 0;
+    }
+    .interactive-container h2 {
+        max-width: 500px;
+        font-size: 3rem;
+    }
+        .interactive-container p {
+        font-size: 1.2rem;
+       width: 100%;
+       max-width: 560px;
+    }
+     .creations-header{
+        gap: 450px;
+    }
+    .creations-grid {
+    row-gap: 40px;
+}
+} */
+
